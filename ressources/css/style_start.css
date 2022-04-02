@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,700|Roboto+Slab:700');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    padding: 0px;
+    font-size: 18px;
+}
+
+/* Links */
+p a {
+    color: rgb(201, 86, 10);
+    text-decoration: none;
+}
+
+/* Main Title */
+header h1 {
+    height: 200px;
+    line-height: 9em;
+    vertical-align: bottom;
+    text-align: center;
+    color: white;
+    background: linear-gradient(rgb(237, 201, 177), rgb(196, 62, 4));
+}
+
+header h1.separator {
+    list-style: none;
+
+}
+
+
+/* Navigation bar */
+nav {
+    background-color: rgb(61, 60, 60);
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.hamburger {
+    display: none;
+}
+
+nav li {
+    list-style-type: none;
+    display: inline;
+    padding: 0 20px 0 10px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+nav li a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 17px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+nav li a:hover {
+    background-color: white;
+    color: rgb(217, 103, 27);
+}
+
+
+
+/* Main containers on left*/
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    padding: 10px;
+}
+
+main>* {
+    flex-basis: 100%;
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        background-color: white;
+    }
+
+    main {
+        flex-direction: column;
+    }
+}
+
+
+/* Title of the container */
+main section article header h2 {
+    border-bottom: solid;
+    margin-bottom: 10px;
+    border-width: 1px;
+    border-color: grey;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+main section article header p {
+    font-style: italic;
+    color: grey;
+    text-align: right;
+    padding-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+
+#articles {
+    padding: 0 2em 2em 2em;
+}
+
+/* Aside part on the right - Box settings */
+aside {
+    flex-basis: 20%;
+    padding-top: 20px;
+    padding-right: 10px;
+}
+
+aside div {
+    text-align: initial;
+    border: 1px;
+    box-shadow: 2px 3px 3px 2px #b3b1b1;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+
+}
+
+aside h3 {
+    background-color: rgb(241, 119, 38);
+    color: white;
+    padding: 4px;
+}
+
+
+aside div li {
+    list-style-type: none;
+    margin-top: 10px;
+    margin-left: -20px;
+    color: black;
+    background-color: white;
+}
+
+
+
+/* Footer settings */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(71, 70, 70);
+}
+
+
+/* Table pour journal de bord */
+td {
+    border: 1px solid #333;
+}
+#Tabletitle {
+    font-weight: bold;
+    background-color: lightgrey;
+}
