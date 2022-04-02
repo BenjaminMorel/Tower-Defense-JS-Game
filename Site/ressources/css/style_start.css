@@ -30,6 +30,11 @@ header h1 {
     background: linear-gradient(rgb(237, 201, 177), rgb(196, 62, 4));
 }
 
+#jeu {
+    color: black;
+    background-color: white;
+}
+
 header h1.separator {
     list-style: none;
 
