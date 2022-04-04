@@ -1,66 +1,82 @@
 <!doctype html>
 <html>
+
 <head>
     <title>624-2 - HTML/CSS/JavaScript</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="ressources/css/style_start.css">
 </head>
+
 <body>
 
-<header>
-    <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
-    <nav>
-        <!-- Hamburger -->
-        <ul>
-            <li class="hamburger">
-                <img src="ressources/images/hamburger_icon.svg">
-            </li>
-            <li>
-                <a href="description_start.html">Description</a>
-            </li>
-            <li>
-                <a href="maquettes_start.html">Maquettes</a>
-            </li>
-            <li class="active">
-                <a href="mockup_start.html">Mockup</a>
-            </li>
-            <li>
-                <a href="flux_start.html">Flux</a>
-            </li>
-            <li>
-                <a href="journal_de_bord_start.html">Journal de bord</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
+        <nav>
+            <!-- Hamburger -->
+            <ul>
+                <li class="hamburger">
+                    <img src="ressources/images/site/hamburger_icon.svg">
+                </li>
+                <li>
+                    <a href="description_start.html">Description</a>
+                </li>
+                <li>
+                    <a href="maquettes_start.html">Maquettes</a>
+                </li>
+                <li class="active">
+                    <a href="mockup_start.html">Mockup</a>
+                </li>
+                <li>
+                    <a href="flux_start.html">Flux</a>
+                </li>
+                <li>
+                    <a href="journal_de_bord_start.html">Journal de bord</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-<main>
-    <!-- Début zone pour votre contenu -->
-    <section id="articles">
-        <article>
-            <header>
-                <h2>Mockup de votre projet</h2>
-                <p>Par Benjamin, Hugo & Daniel, le 01/04/2022</p>
-            </header>
-                <p><strong>Mockups: </strong>Voici quelques images que nous avons trouvées ou créées en nous inspirant de jeux déjà existants afin d'avoir une idée de ce que nous voulions réélement faire.</p>
-                <img height="300px" src="ressources/images/mockups/mockup1.png">
-                <img height="300px" src="ressources/images/mockups/mockup2.png">
-                <img height="300px" src="ressources/images/mockups/mockup3.gif">
-                <img height="300px" src="ressources/images/mockups/mockup4.gif">
-                <img height="300px" src="ressources/images/mockups/mockup5.png">
-                <img height="300px" src="ressources/images/mockups/mockup6.jpg">
-                <br><br><br>
-                <p><strong>Objets : </strong>Exemple de tuiles que nous utiliserons pour construire notre canvas, avec chemin + ennemis</p>
-                <img height="500px" src="ressources/images/mockups/tiles.png">
-        </article>
-    </section>
-    <!-- >Fin zone pour votre contenu -->
-</main>
-    
+    <main>
+        <!-- Début zone pour votre contenu -->
+        <section id="articles">
+            <article>
+                <header>
+                    <h2>Mockup de votre projet</h2>
+                    <p>Par Benjamin, Hugo & Daniel, le 01/04/2022</p>
+                </header>
+                <p><strong>Ennemis :</strong></p>
+                <p>Nous avons trouvé une série d'images de monstres :</p>
+                <ul>
+                    <li>Ennemi de base, qui serait utilisé dans la plupart de nos niveaux.</li>
+                    <img src="ressources/images/mockups/monstre4.png"><br><br>
+                    <li>Ennemi peu resistant mais rapide.</li>
+                    <img src="ressources/images/mockups/monstre1.png"><br><br>
+                    <li>Ennemi aérien qui serait attaquable que par certaines tourelles.</li>
+                    <img src="ressources/images/mockups/monstre2.png"><br><br>
+                    <li>Ennemi très lent mais bien plus puissant et résistant.</li>
+                    <img src="ressources/images/mockups/monstre3.png"><br><br>
+                    <br>
+                </ul>
+                <p><strong>Tuiles : </strong></p>
+                <p>Nous nous sommes basés sur cette tuile afin de construire notre canvas.
+                    Sur la gauche, nous avons aussi 2 couleurs de sol, que nous utiliserons pour le chemin chemin sur
+                    lesquels les monstrent iront, ainsi que le sol normal.</p>
+                <img src="ressources/images/mockups/tuile.png"><br><br>
+
+                <p><strong>Maps :</strong></p>
+                <p>Exemple de cartes que nous avons crééss avec notre canvas, les zones foncées étant le chemin :</p>
+                <img height="300px" src="ressources/images/mockups/carte1.png"><br><br>
+                <img height="300px" src="ressources/images/mockups/carte2.png"><br>
+            </article>
+        </section>
+        <!-- >Fin zone pour votre contenu -->
+    </main>
+
     <footer>
         <img id="logo" src="ressources/images/site/logo.png">
     </footer>
 
 </body>
+
 </html>

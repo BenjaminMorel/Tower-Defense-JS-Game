@@ -12,7 +12,9 @@ html {
 body {
     padding: 0px;
     font-size: 18px;
+    position: relative;
 }
+
 
 /* Links */
 p a {
@@ -23,21 +25,15 @@ p a {
 /* Main Title */
 header h1 {
     height: 200px;
-    line-height: 9em;
+    padding-top: 100px;
     vertical-align: bottom;
     text-align: center;
     color: white;
-    background: linear-gradient(rgb(237, 201, 177), rgb(196, 62, 4));
-}
-
-#jeu {
-    color: black;
-    background-color: white;
+    background: linear-gradient(rgb(223, 180, 152), rgb(196, 62, 4) 85%);
 }
 
 header h1.separator {
     list-style: none;
-
 }
 
 
@@ -47,6 +43,11 @@ nav {
     padding-left: 10px;
     overflow: hidden;
 }
+
+ul > li {
+    margin: 0 1rem;
+}
+
 
 .hamburger {
     display: none;
@@ -157,22 +158,20 @@ aside div li {
 }
 
 
+/* Table pour journal de bord */
+td {
+    border: 1px solid #333;
+}
+
 
 /* Footer settings */
 footer {
     position: relative;
-    bottom: 0;
+    bottom: -100px;
     width: 100%;
     text-align: center;
     background-color: rgb(71, 70, 70);
 }
 
 
-/* Table pour journal de bord */
-td {
-    border: 1px solid #333;
-}
-#Tabletitle {
-    font-weight: bold;
-    background-color: lightgrey;
-}
+

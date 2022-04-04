@@ -1,61 +1,87 @@
 <!doctype html>
 <html>
+
 <head>
     <title>624-2 - HTML/CSS/JavaScript</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="ressources/css/style_start.css">
 </head>
+
 <body>
 
-<header>
-    <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
-    <nav>
-        <!-- Hamburger -->
-        <ul>
-            <li class="hamburger">
-                <img src="ressources/images/hamburger_icon.svg">
-            </li>
-            <li>
-                <a href="description_start.html">Description</a>
-            </li>
-            <li class="active">
-                <a href="maquettes_start.html">Maquettes</a>
-            </li>
-            <li>
-                <a href="mockup_start.html">Mockup</a>
-            </li>
-            <li>
-                <a href="flux_start.html">Flux</a>
-            </li>
-            <li>
-                <a href="journal_de_bord_start.html">Journal de bord</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
+        <nav>
+            <!-- Hamburger -->
+            <ul>
+                <li class="hamburger">
+                    <img src="ressources/images/site/hamburger_icon.svg">
+                </li>
+                <li>
+                    <a href="description_start.html">Description</a>
+                </li>
+                <li class="active">
+                    <a href="maquettes_start.html">Maquettes</a>
+                </li>
+                <li>
+                    <a href="mockup_start.html">Mockup</a>
+                </li>
+                <li>
+                    <a href="flux_start.html">Flux</a>
+                </li>
+                <li>
+                    <a href="journal_de_bord_start.html">Journal de bord</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-<main>
-    <!-- Début zone pour votre contenu -->
-    <section id="articles">
-        <article>
-            <header>
-                <h2>Maquette visuelle de votre projet</h2>
-                <p>Par Benjamin, Hugo & Daniel, le 01/04/2022</p>
-            </header>
-            <p>Lorem ipsum dolor sit amet... <a href="http://www.hevs.ch/">http://www.hevs.ch/</a>,
-                 Ut non eros scelerisque, varius diam a, pulvinar arcu. Phasellus fermentum non arcu ornare ornare. Sed libero mi, rutrum et felis commodo, molestie tempor leo. Duis sit amet erat ut elit faucibus tincidunt sit amet non leo. Quisque dapibus ultricies cursus.</p>
-            <p> Aenean elit nisi, maximus sit amet vulputate non, molestie non odio. Quisque in dolor vel libero <strong>lobortis commodo</strong> ultricies sed nisl. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut pretium ipsum in ipsum venenatis, id elementum quam ultrices. Nam nec enim sagittis, ultrices massa eu, fermentum sem.</p>
-            <p><strong>Nam sed justo tortor:</strong>Aliquam eros ex, porttitor vel aliquam in, imperdiet id felis. Aliquam sed est quis nibh vestibulum porta. Nam ipsum quam, dapibus quis felis quis, pharetra auctor sapien</p>
-                <p>Le code source de l'application est disponible sur le <a href="https://github.com/BenjaminMorel/RIA-Game">github du projet</a>.</p>
-        </article>
-    </section>
-    <!-- >Fin zone pour votre contenu -->
-</main>
-    
+    <main>
+        <!-- Début zone pour votre contenu -->
+        <section id="articles">
+            <article>
+                <header>
+                    <h2>Maquette visuelle de votre projet</h2>
+                    <p>Par Benjamin, Hugo & Daniel, le 01/04/2022</p>
+                </header>
+                <p><strong>Présentation de nos maquettes : </strong></p>
+                <p>Pour commencer, nous pensons faire une page d'accueil, avec 3 options à choix :
+                <ul>
+                    <li>Un boutton "play" qui
+                        va rediriger vers la page suivante pour lancer le jeu</li>
+                    <li>Un boutton "statistics" pour retrouver des chiffres sur
+                        le joueurs, tels que le nombre de parties jouées, le nombre d'ennemis tués, etc.</li>
+                    <li>Un boutton "quit" pour fermer l'application.</li>
+                </ul>
+                </p>
+                <img height="400px" src="ressources/images/maquette/maquette1.png">
+                <br><br>
+                <p>En sélectionnant "play", nous arrivons ensuite sur la page de sélection de la difficulté, soit
+                    facile, moyen ou difficle. Plus la difficulté est élevée, plus les manches seront difficiles à
+                    passer, et les monstres plus difficiles à vaincre.</p>
+                <img height="400px" src="ressources/images/maquette/maquette2.png">
+                <br><br>
+                <p>Maquette pour la partie jeu en soit, à voir plus en détail dans les mockups. Globalement, nous
+                    retrouvons une carte au milieu, avec un tracé que les monstres suivent, une barre
+                    d'action au sommet pour lancer un niveau, voir la manche actuelle et voir le solde d'argent. En bas,
+                    nous retrouverons les différentes tourelles de défense à placer.</p>
+                <img height="400px" src="ressources/images/maquette/maquette3.png">
+                <br><br>
+                <p>Et finalement, une page statistiques qui va afficher les informations sur le joueur, le but étant de
+                    comparer
+                    son score avec ses amis :)</p>
+                <img height="400px" src="ressources/images/maquette/maquette4.png">
+
+            </article>
+        </section>
+        <!-- >Fin zone pour votre contenu -->
+    </main>
+
     <footer>
         <img id="logo" src="ressources/images/site/logo.png">
     </footer>
 
 </body>
+
 </html>
