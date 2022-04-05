@@ -44,7 +44,7 @@ nav {
     overflow: hidden;
 }
 
-ul > li {
+ul>li {
     margin: 0 1rem;
 }
 
@@ -90,13 +90,27 @@ main>* {
 }
 
 @media screen and (max-width: 480px) {
-    body {
-        background-color: white;
+    header ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #454545;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-
     main {
         flex-direction: column;
     }
+
+    img {
+        width: 100%;
+    }
+    #logo {
+        width: 60%;
+    }
+
 }
 
 
@@ -172,6 +186,3 @@ footer {
     text-align: center;
     background-color: rgb(71, 70, 70);
 }
-
-
-

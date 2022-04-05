@@ -15,7 +15,7 @@
         <nav>
             <!-- Hamburger -->
             <ul>
-                <li class="hamburger">
+                <li class="hamburger" onclick="myFunction()">
                     <img src="ressources/images/site/hamburger_icon.svg">
                 </li>
                 <li class="active">
@@ -102,6 +102,19 @@
         <img id="logo" src="ressources/images/site/logo.png">
     </footer>
 
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("hamburger");
+          if (x.className === "hamburger") {
+            x.className += " responsive";
+          } else {
+            x.className = "hamburger";
+          }
+        }
+        </script>
+
 </body>
+
 
 </html>
