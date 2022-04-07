@@ -12,7 +12,7 @@
 
     <header>
         <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
-        <nav>
+        <nav class="topnav" id="myTopnav">
             <!-- Hamburger -->
             <ul>
                 <li class="hamburger">
@@ -33,9 +33,7 @@
                 <li>
                     <a href="journal_de_bord_start.html">Journal de bord</a>
                 </li>
-                <li>
-                    <a id="jeu" href="../Game/index.html">Jeu</a>
-                </li>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
             </ul>
         </nav>
     </header>
@@ -54,7 +52,9 @@
                     vagues d'ennemis qui se déplacent en suivant un itinéraire. Les ennemis deviennent de plus en plus
                     difficiles à battre et développent des caractéristiques différentes au fur et à mesure des
                     vagues.
-                    Le joueur peut se défendre en utilisant différents mécanismes. Il gagne de l'argent chaque fois qu'il élimine un ennemi et peut l'utiliser pour améliorer progressivement ses défenses. Le joueur a un
+                    Le joueur peut se défendre en utilisant différents mécanismes. Il gagne de l'argent chaque fois
+                    qu'il élimine un ennemi et peut l'utiliser pour améliorer progressivement ses défenses. Le joueur a
+                    un
                     nombre limité de vies. La partie se prend fin si ce dernier perd toutes ses vies ou s'il a résisté à
                     toutes les vagues.</p>
 
@@ -67,7 +67,8 @@
                 </p>
 
                 <p><strong>Aspect technique : </strong>Nous allons modéliser une carte en 2D à l'aide d'un canvas, d'un
-                    certain nombre de pixels afin de représenter notre champ de jeu. Nous utilisons des tuiles pour cela.
+                    certain nombre de pixels afin de représenter notre champ de jeu. Nous utilisons des tuiles pour
+                    cela.
                     Nous allons ensuite créer un tracé que les ennemis suivront, ainsi que des emplacements pour nos
                     tours de défense.
                     Pour certains niveaux, nous avons eu l'idée de créer un algorithm de génération aléatoire, qui
@@ -101,6 +102,8 @@
     <footer>
         <img id="logo" src="ressources/images/site/logo.png">
     </footer>
+
+    <script src="scripts/script.js"></script>
 
 </body>
 
