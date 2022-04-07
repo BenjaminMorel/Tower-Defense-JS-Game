@@ -75,6 +75,29 @@ nav li a:hover {
     color: rgb(217, 103, 27);
 }
 
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+
+.topnav .icon {
+    display: none;
+}
+
+.topnav a:hover .dropbtn {
+    background-color: #555;
+    color: white;
+}
 
 
 /* Main containers on left*/
@@ -89,17 +112,38 @@ main>* {
     flex-basis: 100%;
 }
 
-@media screen and (max-width: 480px) {
-    header ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #454545;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+
+@media screen and (max-width: 600px) {
+    .topnav a:first-child {
+        display: none;
     }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .topnav.responsive {
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 40px;
+        position: relative;
+    }
+
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        align-items: center;
+        display: block;
+    }
+
     main {
         flex-direction: column;
     }
@@ -107,10 +151,10 @@ main>* {
     img {
         width: 100%;
     }
+
     #logo {
         width: 60%;
     }
-    
 
 }
 

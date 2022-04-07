@@ -10,13 +10,13 @@
 
 <header>
     <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
-    <nav>
+    <nav class="topnav" id="myTopnav">
         <!-- Hamburger -->
         <ul>
             <li class="hamburger">
                 <img src="ressources/images/site/hamburger_icon.svg">
             </li>
-            <li>
+            <li class="active">
                 <a href="description_start.html">Description</a>
             </li>
             <li>
@@ -28,9 +28,10 @@
             <li>
                 <a href="flux_start.html">Flux</a>
             </li>
-            <li class="active">
+            <li>
                 <a href="journal_de_bord_start.html">Journal de bord</a>
             </li>
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
         </ul>
     </nav>
 </header>
@@ -98,6 +99,8 @@
     <footer>
         <img id="logo" src="ressources/images/site/logo.png">
     </footer>
+
+    <script src="scripts/script.js"></script>
 
 </body>
 </html>
