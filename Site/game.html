@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Javascript tower defense game</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Site/game/style.css">
+    <link rel="stylesheet" href="ressources/css/style_start.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
+        <nav class="topnav" id="myTopnav">
+            <!-- Hamburger -->
+            <ul>
+                <li class="hamburger">
+                    <img src="ressources/images/site/hamburger_icon.svg">
+                </li>
+                <li class="active">
+                    <a href="description_start.html">Description</a>
+                </li>
+                <li>
+                    <a href="maquettes_start.html">Maquettes</a>
+                </li>
+                <li>
+                    <a href="mockup_start.html">Mockup</a>
+                </li>
+                <li>
+                    <a href="flux_start.html">Flux</a>
+                </li>
+                <li>
+                    <a href="game.html">Jeu</a>
+                </li>
+                <li>
+                    <a href="journal_de_bord_start.html">Journal de bord</a>
+                </li>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- GeoLocalisation-->
+    <button id="get-location">Get My Location</button>
+    <a>Your location is <span id="latitude">0.00</span>latitude by <span id="longitude">0.00</span>longitude.</a>
+    <script>
+        let button = document.getElementById("get-location");
+        let latText = document.getElementById("latitude");
+        let longText = document.getElementById("longitude");
+
+        button.addEventListener("click", function () {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                let lat = position.coords.latitude;
+                let long = position.coords.longitude;
+                latText.innerText = lat.toFixed(2);
+                longText.innerText = long.toFixed(2);
+            });
+        });
+    </script>
+
+
+    <!-- Top menu with waves info, money-->
+    <div class="TopMenu">
+        <h3 class="money">Money: <span id="money">250</span></h3>
+    </div>
+
+    <!-- Canvas with map -->
+    <canvas id='canvas' class='canvas' width='1200' height='500'></canvas>
+
+    <!-- Bottom menu with turrets -->
+    <div class='tower' style='background-color: rgb(255, 255, 255);' onclick='changeTower(0);'>
+        <img src="/Site/game/images/Cannon1.png">
+        <br>Tower 1
+        <br>Range: <span id='tower1range'></span>
+        <br>Damage: <span id='tower1damage'></span>
+        <br>Rate: <span id='tower1rate'></span>
+        <br>Cost: <span id='tower1cost'></span>
+    </div>
+    <div class='tower' style='background-color: rgb(255, 255, 255);' onclick='changeTower(1);'>
+        <img src="/Site/game/images/Cannon2.png">
+        <br>Tower 2
+        <br>Range: <span id='tower2range'></span>
+        <br>Damage: <span id='tower2damage'></span>
+        <br>Rate: <span id='tower2rate'></span>
+        <br>Cost: <span id='tower2cost'></span>
+    </div>
+
+    <div class='tower' style='background-color:rgb(255, 255, 255);' onclick='changeTower(2);'>
+        <img src="/Site/game/images/Cannon3.png">
+        <br>Tower 3
+        <br>Range: <span id='tower3range'></span>
+        <br>Damage: <span id='tower3damage'></span>
+        <br>Rate: <span id='tower3rate'></span>
+        <br>Cost: <span id='tower3cost'></span>
+    </div>
+
+    <!-- Label with the number of ennemies killed-->
+    <div>
+        Ennemies killed: <span id='ennemiesKilled'>0</span>
+    </div>
+
+    <!-- Images -->
+    <div style="display:none;">
+        <img id="cannon1" src="game/images/Cannon1.png" width="40" height="40">
+        <img id="cannon2" src="game/images/Cannon2.png" width="40" height="40">
+        <img id="cannon3" src="game/images/Cannon3.png" width="40" height="40">
+        <img id="ennemy0" src="game/images/Monster0.png">
+        <img id="ennemy1" src="game/images/Monster1.png">
+        <img id="ennemy2" src="game/images/Monster2.png">
+        <img id="ennemy3" src="game/images/Monster3.png">
+    </div>
+
+    <!-- Links to java script files-->
+    <script type='text/javascript' src='/Site/game/mainLoop.js'></script>
+    <script type='text/javascript' src='/Site/game/ennemies.js'></script>
+    <script type='text/javascript' src='/Site/game/towers.js'></script>
+    <script type='text/javascript' src='/Site/game/bullets.js'></script>
+    <script type='text/javascript' src='/Site/game/mouseClick.js'></script>
+
+</body>
+
+</html>

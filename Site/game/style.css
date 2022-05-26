@@ -1,0 +1,42 @@
+* {
+    position: relative;
+    margin: 10px;
+}
+
+#get-location {
+    background-color: grey;
+    color: white;
+}
+
+.TopMenu {
+    width: 1000px;
+}
+
+.BottomMenu {
+    width: 1000px;
+    background-color: green;
+}
+
+.money {
+    color: darkgoldenrod;
+    float: right;
+}
+
+.right {
+    float: right;
+}
+
+.canvas {
+    margin-left: 5%;
+    margin-right: 5%;
+    align-items: center;
+    border-color: black;
+    border-style: solid;
+    background-image: url(/Site/game/images/Background1.png);
+}
+
+.tower {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid;
+}

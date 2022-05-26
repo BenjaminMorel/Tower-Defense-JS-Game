@@ -18,6 +18,20 @@ export default class TileMap {
 
     //Map path
     map = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ]
+    /*map = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0],
@@ -36,7 +50,7 @@ export default class TileMap {
         this.map[row][col] = 1; //set background with a path 
         monsters.push(new Monster(col * this.tileSize, row * this.tileSize, this.tileSize, velocity, this)); //create new monster with x and y position
         return monsters;
-    }
+    }*/
 
     getMonsters(velocity) {
         const monsters = [];
@@ -45,7 +59,11 @@ export default class TileMap {
         for(let row = 0; row < this.map.length; row++) {
             for(let col = 0; col < this.map[0].length; col++) {
                 const tile = this.map[row][col];
-                const spawnEnnemy = this.map[8][0] = 2;
+                //const spawnEnnemy = this.map[8][0] = 2;
+                if(this.map[8][2] == 2){
+                    this.spawnMonster(velocity);
+                }
+
                 if (tile == 2) {
                     monsters.push(new Monster(col * this.tileSize, row * this.tileSize, this.tileSize, velocity, this)); //create new monster with x and y position
                     this.map[row][col] = 1; //set background with a path 

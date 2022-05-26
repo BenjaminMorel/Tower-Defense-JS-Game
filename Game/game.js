@@ -27,6 +27,7 @@ function gameLoop() {
     if (start) {
         //if (frame % 100 == 0) {
             monsters.forEach(monster => monster.draw(context)); 
+            
         //}
        
         

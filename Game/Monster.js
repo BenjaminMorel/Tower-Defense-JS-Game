@@ -1,7 +1,7 @@
 import MovingDirection from "./MovingDirection.js";
 
 export default class Monster {
-
+ 
     constructor(x, y, size, velocity, tileMap) {
         this.x = x;
         this.y = y;
