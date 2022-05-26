@@ -12,7 +12,7 @@ var TOWER_RANGE_SHORT = TOWER_RANGE_MEDIUM * 0.7; //0.7 rather than 0.5 because 
 var TOWER_RATE_MEDIUM = 1.0 * 1000; //smaller means more bullets per second
 var TOWER_RATE_HIGH = TOWER_RATE_MEDIUM / 2;
 
-var TOWER_DAMAGE_MEDIUM = Enemy.prototype.maxLife / 6;
+var TOWER_DAMAGE_MEDIUM = Enemy.prototype.maxLife / 5;
 var TOWER_DAMAGE_HIGH = TOWER_DAMAGE_MEDIUM * 1.5;
 
 var TOWER_STRATEGY_OLDEST = 1;
