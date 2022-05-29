@@ -111,7 +111,7 @@ function checkForDead() {
 
 var addEnemy = function () {
   var enemy;
-  if (ennemiesCounter > 1 && ennemiesCounter % 3 == 0) {
+  if (ennemiesCounter > 10 && ennemiesCounter % 3 == 0) {
     enemy = new enemyTypes[2](0);//select random enemy type
   }
   else if (ennemiesCounter > 1 && ennemiesCounter % 10 == 0) {

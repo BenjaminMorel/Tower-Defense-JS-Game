@@ -11,7 +11,7 @@ var canvas = document.getElementById('canvas'),
   rightBorder = maxWidth * 5 / 6,
   midBorder = maxWidth * 2 / 3;
 //vertical borders:
-  firstBorder = maxWidth / 8,
+firstBorder = maxWidth / 8,
   secondBorder = maxWidth / 4,
   thirdBorder = maxWidth * 3 / 8,
   ennemiesKilled = 0,
@@ -58,10 +58,27 @@ mainLoopLogic = function () {
     //true if attacker scored
     if (enemies[i].move(t)) {
       alert("You lost, score: " + ennemiesKilled);
+
+      const scores = JSON.parse(localStorage.getItem('highscores')) || [];
+
+      scores.push(ennemiesKilled);
+
+      // sort from low to high
+      scores.sort();
+
+      if (scores.length > 10) {
+        scores.shift();
+      }
+
+      localStorage.setItem('highscores', JSON.stringify(scores));
+      // refresh the page
+      window.location.reload();
+
       ennemiesKilled = 0;
       return;
     }
   }
+
   for (var i = 0, j = towers.length; i < j; i++) {
     towers[i].findTarget();
     towers[i].findUnitVector();

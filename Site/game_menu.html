@@ -42,9 +42,22 @@
         </nav>
     </header>
 
+    <center>
+        <div id="menu" style="background-image: url(/Site/game/images/Background_menu.png); height: 350px; width: 700px;">
+            <div id="mainDiv">
+                <a type="button" class="button" href="select_level.html">Play game</a>
+            </div>
+            <div id="mainDiv2">
+                <a type="button" class="button" href="leaderboards.html">Leaderboards</a>
+            </div>
+        </div>
+    </center>
+
     <!-- GeoLocalisation-->
     <center>
-        <button id="get-location">Show my Location</button>
+
+        <button id="get-location">Show my location <img src="/Site/ressources/images/Location.png"
+                height="20px"></button>
         <a>Your location is <span id="latitude">0.00 </span>latitude by <span id="longitude">0.00 </span>longitude.</a>
         <script>
             let button = document.getElementById("get-location");
@@ -55,18 +68,13 @@
                 navigator.geolocation.getCurrentPosition(function (position) {
                     let lat = position.coords.latitude;
                     let long = position.coords.longitude;
-                    latText.innerText = lat.toFixed(2);
-                    longText.innerText = long.toFixed(2);
+                    latText.innerText = lat.toFixed(2) + " ";
+                    longText.innerText = long.toFixed(2) + " ";
                 });
             });
         </script>
     </center>
 
-    <div id="mainDiv">
-        <button type="button" class="button"><a href="select_level.html">Play game</a></button>
-        <button type="button" class="button"><a href="leaderboards.html">Leaderboards</a></button>
-    </div>
-
-    </body>
+</body>
 
 </html>

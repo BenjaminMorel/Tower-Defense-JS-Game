@@ -3,22 +3,32 @@
     margin: 10px;
 }
 
-#mainDiv {
-    display: flexbox;
-    text-align: center;
+#mainDiv,
+#mainDiv2 {
+    padding: 30px;
+}
+
+
+#menu {
+    margin-top: 20px;
+    padding-top: 20px;
+    align-items: center;
+    border-color: black, 1px;
+    border-style: solid;
 }
 
 .button {
     border: none;
     color: white;
-    padding: 20px 34px;
-    text-align: center;
+    padding: 20px 10px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
     cursor: pointer;
     border-radius: 6px;
-    outline: none;
 }
+
 
 #get-location {
     background-color: grey;
@@ -26,7 +36,7 @@
     color: white;
     border-radius: 10px;
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .ennemiesKilled {
@@ -75,20 +85,28 @@
     background-color: green;
 }
 
-#title_select {
+#title {
     text-align: center;
-    margin-top: 40px;
+    font-size: 30px;
+    color: white;
+    text-shadow: 2px 2px 2px black;
     margin-bottom: 40px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 #levelSelection {
     width: 100%;
-    background-color: darkblue;
+    text-align: center;
     display: flexbox;
-
+    margin-left: 500px;
 }
 
-#div1,
+#div1 {
+    width: 200px;
+    height: 100px;
+}
+
 #div2,
 #div3,
 #div4 {
