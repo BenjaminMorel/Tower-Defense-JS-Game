@@ -10,8 +10,8 @@ var canvas = document.getElementById('canvas'),
   leftBorder = maxWidth / 6,
   rightBorder = maxWidth * 5 / 6,
   midBorder = maxWidth * 2 / 3;
-//vertical borders:
-firstBorder = maxWidth / 8,
+  //vertical borders:
+  firstBorder = maxWidth / 8,
   secondBorder = maxWidth / 4,
   thirdBorder = maxWidth * 3 / 8,
   ennemiesKilled = 0,
@@ -72,8 +72,7 @@ mainLoopLogic = function () {
 
       localStorage.setItem('highscores', JSON.stringify(scores));
       // refresh the page
-      window.location.reload();
-
+      window.location.replace("/Site/leaderboards.html");
       ennemiesKilled = 0;
       return;
     }

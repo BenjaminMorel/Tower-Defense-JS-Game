@@ -102,9 +102,17 @@
     margin-left: 500px;
 }
 
+#nickname {
+    margin-top: 20px;
+}
+
 #div1 {
     width: 200px;
     height: 100px;
+}
+
+.maps {
+    margin-left: 65px;
 }
 
 #div2,

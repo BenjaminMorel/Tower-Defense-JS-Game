@@ -49,8 +49,10 @@
     </div>
 
     <!-- Canvas with map -->
-    <canvas id='canvas' class='canvas' width='1200' height='500' style="background-image: url(/Site/game/images/Background1.png)"></canvas>
-    
+    <div ondrop="drop(event)" ondragover="allowDrop(event)">
+        <canvas id='canvas' class='canvas' width='1200' height='500'
+            style="background-image: url(/Site/game/images/Background1.png)"></canvas>
+    </div>
 
     <!-- Bottom menu with turrets -->
     <div class='tower' onclick='changeTower(0);'>
@@ -93,6 +95,46 @@
     <script type='text/javascript' src='/Site/game/towers.js'></script>
     <script type='text/javascript' src='/Site/game/bullets.js'></script>
     <script type='text/javascript' src='/Site/game/mouseClick.js'></script>
+
+    <div class="maps">
+        <div id="div2" ondrop="drop(event)">
+            <img src="game/images/Background1.png" draggable="true" ondragstart="drag(event)" id="drag1" width="200"
+                height="100">
+        </div>
+
+        <div id="div3" ondrop="drop(event)">
+            <img src="game/images/Background2.png" draggable="true" ondragstart="drag(event)" id="drag2" width="200"
+                height="100">
+        </div>
+
+        <div id="div4" ondrop="drop(event)">
+            <img src="game/images/Background3.png" draggable="true" ondragstart="drag(event)" id="drag3" width="200"
+                height="100">
+        </div>
+    </div>
+
+    </div>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            if (document.getElementById(data).id == 'drag1') {
+                document.getElementById('canvas').style.backgroundImage = 'url("game/images/Background1.png")';
+            }
+            else if (document.getElementById(data).id == 'drag2') {
+                document.getElementById('canvas').style.backgroundImage = 'url("game/images/Background2.png")';
+            }
+            else if (document.getElementById(data).id == 'drag3') {
+                document.getElementById('canvas').style.backgroundImage = 'url("game/images/Background3.png")';
+            }
+        }
+    </script>
 
 </body>
 
