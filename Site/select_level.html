@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Javascript tower defense game</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Site/game/style.css">
+    <link rel="stylesheet" href="ressources/css/style_start.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>HES-SO Vs - 624-2 - HTML/CSS/JavaScript</h1>
+        <nav class="topnav" id="myTopnav">
+            <!-- Hamburger -->
+            <ul>
+                <li class="hamburger">
+                    <img src="ressources/images/site/hamburger_icon.svg">
+                </li>
+                <li class="active">
+                    <a href="description_start.html">Description</a>
+                </li>
+                <li>
+                    <a href="maquettes_start.html">Maquettes</a>
+                </li>
+                <li>
+                    <a href="mockup_start.html">Mockup</a>
+                </li>
+                <li>
+                    <a href="flux_start.html">Flux</a>
+                </li>
+                <li>
+                    <a href="game_menu.html">Jeu</a>
+                </li>
+                <li>
+                    <a href="journal_de_bord_start.html">Journal de bord</a>
+                </li>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+            </ul>
+        </nav>
+    </header>
+
+    <style>
+        
+    </style>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+
+    <h1 id="title_select">Select the level</h1>
+
+    <div id="levelSelection">
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </div>
+
+    <div>
+        <div id="div2" ondrop="drop(event)">
+            <img src="game/images/Background1.png" draggable="true" ondragstart="drag(event)" id="drag1" width="200"
+                height="100">
+        </div>
+
+        <div id="div3" ondrop="drop(event)">
+            <img src="game/images/Background2.png" draggable="true" ondragstart="drag(event)" id="drag2" width="200"
+                height="100">
+        </div>
+
+        <div id="div4" ondrop="drop(event)">
+            <img src="game/images/Background3.png" draggable="true" ondragstart="drag(event)" id="drag3" width="200"
+                height="100">
+        </div>
+    </div>
+
+    <div id="mainDiv">
+        <button type="button" class="button"><a href="game.html">Play game</a></button>
+    </div>
+
+
+</body>
+
+</html>

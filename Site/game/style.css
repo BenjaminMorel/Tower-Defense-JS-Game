@@ -3,13 +3,71 @@
     margin: 10px;
 }
 
+#mainDiv {
+    display: flexbox;
+    text-align: center;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 20px 34px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    outline: none;
+}
+
 #get-location {
     background-color: grey;
+    text-align: center;
     color: white;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.ennemiesKilled {
+    padding: 10px;
+    margin-left: 80px;
 }
 
 .TopMenu {
     width: 1000px;
+}
+
+.money {
+    color: darkgoldenrod;
+    float: right;
+    padding: 10px;
+}
+
+.canvas {
+    margin-left: 5%;
+    margin-right: 5%;
+    float: left;
+    align-items: center;
+    border-color: black;
+    border-style: solid;
+}
+
+.tower {
+    width: 10%;
+    font-size: 16px;
+    flex-basis: 20%;
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 5px;
+    border: 1px solid;
+}
+
+#tower1cost,
+#tower2cost,
+#tower3cost {
+    font-weight: bold;
+    color: darkgoldenrod;
 }
 
 .BottomMenu {
@@ -17,26 +75,30 @@
     background-color: green;
 }
 
-.money {
-    color: darkgoldenrod;
-    float: right;
+#title_select {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
-.right {
-    float: right;
+#levelSelection {
+    width: 100%;
+    background-color: darkblue;
+    display: flexbox;
+
 }
 
-.canvas {
-    margin-left: 5%;
-    margin-right: 5%;
-    align-items: center;
-    border-color: black;
-    border-style: solid;
-    background-image: url(/Site/game/images/Background1.png);
+#div1,
+#div2,
+#div3,
+#div4 {
+    float: left;
+    width: 202px;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid black;
 }
 
-.tower {
-    display: inline-block;
-    padding: 5px;
-    border: 1px solid;
+#div1 {
+    border: 3px solid orange;
 }

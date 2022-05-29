@@ -18,10 +18,9 @@ var canvas = document.getElementById('canvas'),
   loose = false,
   //counter for when to add enemy units
   addEnemyTimer = 2 * 1000,
-  money = 350,
+  money = 300,
   moneyIncrement = 10,
   updateStats = false;
-
 
 //draw stuff
 mainLoopRender = function () {
@@ -61,11 +60,6 @@ mainLoopLogic = function () {
       alert("You lost, score: " + ennemiesKilled);
       ennemiesKilled = 0;
       return;
-      //updateStats = true;
-      //enemies[i].life = 0;
-      //enemies.splice(i, 1);
-      //i--;
-      //j--;
     }
   }
   for (var i = 0, j = towers.length; i < j; i++) {
@@ -73,6 +67,7 @@ mainLoopLogic = function () {
     towers[i].findUnitVector();
     towers[i].fire(t);
   }
+
   //move bullets, check for hits, remove bullets if hit
   for (var i = 0, j = bullets.length; i < j; i++) {
     bullets[i].move(t);

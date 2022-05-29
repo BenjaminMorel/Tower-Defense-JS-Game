@@ -32,7 +32,7 @@
                     <a href="flux_start.html">Flux</a>
                 </li>
                 <li>
-                    <a href="game.html">Jeu</a>
+                    <a href="game_menu.html">Jeu</a>
                 </li>
                 <li>
                     <a href="journal_de_bord_start.html">Journal de bord</a>
@@ -42,35 +42,17 @@
         </nav>
     </header>
 
-    <!-- GeoLocalisation-->
-    <button id="get-location">Get My Location</button>
-    <a>Your location is <span id="latitude">0.00</span>latitude by <span id="longitude">0.00</span>longitude.</a>
-    <script>
-        let button = document.getElementById("get-location");
-        let latText = document.getElementById("latitude");
-        let longText = document.getElementById("longitude");
-
-        button.addEventListener("click", function () {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                let lat = position.coords.latitude;
-                let long = position.coords.longitude;
-                latText.innerText = lat.toFixed(2);
-                longText.innerText = long.toFixed(2);
-            });
-        });
-    </script>
-
-
     <!-- Top menu with waves info, money-->
     <div class="TopMenu">
-        <h3 class="money">Money: <span id="money">250</span></h3>
+        <h3 class="money">Money: <span id="money">300</span></h3>
+        <h4 class="ennemiesKilled">Ennemies killed: <span id='ennemiesKilled'>0</h4>
     </div>
 
     <!-- Canvas with map -->
-    <canvas id='canvas' class='canvas' width='1200' height='500'></canvas>
+    <canvas id='canvas' class='canvas' width='1200' height='500' style="background-image: url(/Site/game/images/Background1.png)"></canvas>
 
     <!-- Bottom menu with turrets -->
-    <div class='tower' style='background-color: rgb(255, 255, 255);' onclick='changeTower(0);'>
+    <div class='tower' onclick='changeTower(0);'>
         <img src="/Site/game/images/Cannon1.png">
         <br>Tower 1
         <br>Range: <span id='tower1range'></span>
@@ -78,7 +60,8 @@
         <br>Rate: <span id='tower1rate'></span>
         <br>Cost: <span id='tower1cost'></span>
     </div>
-    <div class='tower' style='background-color: rgb(255, 255, 255);' onclick='changeTower(1);'>
+
+    <div class='tower' onclick='changeTower(1);'>
         <img src="/Site/game/images/Cannon2.png">
         <br>Tower 2
         <br>Range: <span id='tower2range'></span>
@@ -87,7 +70,7 @@
         <br>Cost: <span id='tower2cost'></span>
     </div>
 
-    <div class='tower' style='background-color:rgb(255, 255, 255);' onclick='changeTower(2);'>
+    <div class='tower' onclick='changeTower(2);'>
         <img src="/Site/game/images/Cannon3.png">
         <br>Tower 3
         <br>Range: <span id='tower3range'></span>
@@ -96,20 +79,11 @@
         <br>Cost: <span id='tower3cost'></span>
     </div>
 
-    <!-- Label with the number of ennemies killed-->
-    <div>
-        Ennemies killed: <span id='ennemiesKilled'>0</span>
-    </div>
-
     <!-- Images -->
     <div style="display:none;">
         <img id="cannon1" src="game/images/Cannon1.png" width="40" height="40">
         <img id="cannon2" src="game/images/Cannon2.png" width="40" height="40">
         <img id="cannon3" src="game/images/Cannon3.png" width="40" height="40">
-        <img id="ennemy0" src="game/images/Monster0.png">
-        <img id="ennemy1" src="game/images/Monster1.png">
-        <img id="ennemy2" src="game/images/Monster2.png">
-        <img id="ennemy3" src="game/images/Monster3.png">
     </div>
 
     <!-- Links to java script files-->

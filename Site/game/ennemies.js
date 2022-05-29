@@ -1,49 +1,35 @@
 var enemies = [];
-//var addedLife = 0; //incremented in checkForDead()
+var addedLife = 0; //incremented in checkForDead()
+var ennemiesCounter = 0;
 
 function Enemy(progress) {
   this.progress = progress;
-  this.life = this.maxLife;
+  ennemiesCounter = ennemiesCounter + 1;
+  //console.log("New ennemy spawned: " + ennemiesCounter);
+  this.life = this.maxLife + addedLife;
 }
 
 //common to all Emeny objects
 Enemy.prototype.maxLife = 1;
 Enemy.prototype.speed = baseSpeed;
-Enemy.prototype.color = "black";
-Enemy.prototype.image = document.getElementById('ennemy0');
-Enemy.prototype.image1 = document.getElementById('ennemy1');
-Enemy.prototype.image2 = document.getElementById('ennemy2');
-Enemy.prototype.image3 = document.getElementById('ennemy3');
 
-var image = new Image();
-image.src = "game/images/Monster0.png";
-var image1 = new Image();
-image1.src = "game/images/Monster1.png";
-var image2 = new Image();
-image2.src = "game/images/Monster2.png";
-var image3 = new Image();
-image3.src = "game/images/Monster3.png";
-this.monsterImages = [image, image1, image2, image3];
-this.monsterImageIndex = 0; //index to start in the array
+var ennemy = new Image();
+ennemy.src = "game/images/Monster.png";
 
+var boss = new Image();
+boss.src = "game/images/Boss.png";
+
+var frog = new Image();
+frog.src = "game/images/Frog.png";
 
 Enemy.prototype.draw = function () {
-  var img = this.constructor.prototype.image;
-
-  this.monsterImageIndex++; //Incremente index for images
-  if (this.monsterImageIndex == 3) { //if max size, reset to 0
-    this.monsterImageIndex = 0;
-  }
-
   context.save();
-  context.translate(this.x, this.y);
-  context.rotate(this.angle);
-  context.drawImage(monsterImages[monsterImageIndex], -img.width / 2, -img.height / 2);
+  context.translate(this.x, this.y+5);
+  context.drawImage(ennemy, -ennemy.width / 2, -ennemy.height / 2);
   context.restore();
-
   //life bar
   context.fillStyle = 'lightgreen';
-  context.fillRect(this.x-10, this.y+15 + rectWidth / 3, rectWidth * this.life / (this.maxLife), rectWidth / 4);
+  context.fillRect(this.x - 10, this.y + 15 + rectWidth / 3, rectWidth * this.life / (this.maxLife + addedLife), rectWidth / 4);
 };
 
 Enemy.prototype.progressTable = [
@@ -111,10 +97,12 @@ Enemy.prototype.move = function (t) {
 function checkForDead() {
   for (var i = 0, j = enemies.length; i < j; i++) {
     if (enemies[i].life <= 0) {
+      addedLife = Math.floor(ennemiesKilled / 10) * (1 + Math.floor(ennemiesKilled / 100)); //used to make enemies tougher as the number of stopped enemies goes up
+      console.log(addedLife);
       ennemiesKilled++;
       money += moneyIncrement;
       updateStats = true;
-      enemies.splice(i, 1);
+      enemies.splice(i, 1); //kill and remove ennemy
       i--;
       j--;
     }
@@ -123,36 +111,54 @@ function checkForDead() {
 
 var addEnemy = function () {
   var enemy;
-  //select random enemy type
-  //  enemy = new enemyTypes[pick](0);
-  //} else {
-
-  //}
-  enemy = new Enemy(0);
+  if (ennemiesCounter > 1 && ennemiesCounter % 3 == 0) {
+    enemy = new enemyTypes[2](0);//select random enemy type
+  }
+  else if (ennemiesCounter > 1 && ennemiesCounter % 10 == 0) {
+    enemy = new enemyTypes[1](0);//select random enemy type
+  }
+  else {
+    enemy = new Enemy(0);
+  }
   enemies.push(enemy);
 }
 
 
-/*faster enemy
-var FastEnemy = function(progress) {
-  Enemy.call(this,progress);
+//Faster enemy
+var FastEnemy = function (progress) {
+  Enemy.call(this, progress);
 };
 FastEnemy.prototype = Object.create(Enemy.prototype);
 FastEnemy.prototype.constructor = FastEnemy;
+FastEnemy.prototype.speed = Enemy.prototype.speed * 1.5;
+FastEnemy.prototype.maxLife = Enemy.prototype.maxLife / 4;
+FastEnemy.prototype.draw = function () {
+  context.save();
+  context.translate(this.x, this.y+8);
+  context.drawImage(frog, -frog.width / 2, -frog.height / 2);
+  context.restore();
+  //life bar
+  context.fillStyle = 'lightgreen';
+  context.fillRect(this.x - 10, this.y + 15 + rectWidth / 3, rectWidth * this.life / (this.maxLife + addedLife), rectWidth / 4);
+}
 
-FastEnemy.prototype.speed = Enemy.prototype.speed*1.4;
-FastEnemy.prototype.color = 'DarkRed';
-
-//stronger enemy
-var StrongEnemy = function(progress) {
-  Enemy.call(this,progress);
+//Stronger enemy
+var StrongEnemy = function (progress) {
+  Enemy.call(this, progress);
 };
 StrongEnemy.prototype = Object.create(Enemy.prototype);
 StrongEnemy.prototype.constructor = StrongEnemy;
-
-StrongEnemy.prototype.color = 'Green';
-StrongEnemy.prototype.maxLife = Enemy.prototype.maxLife*2;*/
-
+StrongEnemy.prototype.maxLife = Enemy.prototype.maxLife * 2;
+StrongEnemy.prototype.speed = Enemy.prototype.speed / 2;
+StrongEnemy.prototype.draw = function () {
+  context.save();
+  context.translate(this.x, this.y-2);
+  context.drawImage(boss, -boss.width / 2, -boss.height / 2);
+  context.restore();
+  //life bar
+  context.fillStyle = 'lightgreen';
+  context.fillRect(this.x - 10, this.y + 15 + rectWidth / 3, rectWidth * this.life / (this.maxLife + addedLife), rectWidth / 4);
+}
 
 //list of enemy types
-var enemyTypes = [Enemy]; 
+var enemyTypes = [Enemy, StrongEnemy, FastEnemy]; 

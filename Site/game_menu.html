@@ -1,10 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>624-2 - HTML/CSS/JavaScript</title>
+    <title>Javascript tower defense game</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/Site/game/style.css">
     <link rel="stylesheet" href="ressources/css/style_start.css">
 </head>
 
@@ -41,33 +42,31 @@
         </nav>
     </header>
 
-    <main>
-        <!-- Début zone pour votre contenu -->
-        <section id="articles">
-            <article>
-                <header>
-                    <h2>Flux et sitemap de votre projet</h2>
-                    <p>Par Benjamin, Hugo & Daniel, le 01/04/2022</p>
-                </header>
-                <p><strong>SiteMap : </strong></p>
+    <!-- GeoLocalisation-->
+    <center>
+        <button id="get-location">Show my Location</button>
+        <a>Your location is <span id="latitude">0.00 </span>latitude by <span id="longitude">0.00 </span>longitude.</a>
+        <script>
+            let button = document.getElementById("get-location");
+            let latText = document.getElementById("latitude");
+            let longText = document.getElementById("longitude");
 
-                <p></p>Nous avons utilisé le site draw.io pour réaliser nos plans</p>
-                <p>Le premier étant le site map du site réalisé pour le TP1 :</p>
-                <img src="ressources/images/sitemap/SiteMap-site.png"><br><br>
-                <p>Le deuxième étant le site map pour le jeu :</p>
-                <img src="ressources/images/sitemap/SiteMap-jeu.png"><br><br>
+            button.addEventListener("click", function () {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    let lat = position.coords.latitude;
+                    let long = position.coords.longitude;
+                    latText.innerText = lat.toFixed(2);
+                    longText.innerText = long.toFixed(2);
+                });
+            });
+        </script>
+    </center>
 
-            </article>
-        </section>
-        <!-- >Fin zone pour votre contenu -->
-    </main>
+    <div id="mainDiv">
+        <button type="button" class="button"><a href="select_level.html">Play game</a></button>
+        <button type="button" class="button"><a href="leaderboards.html">Leaderboards</a></button>
+    </div>
 
-    <footer>
-        <img id="logo" src="ressources/images/site/logo.png">
-    </footer>
-
-    <script src="scripts/script.js"></script>
-
-</body>
+    </body>
 
 </html>

@@ -1,20 +1,19 @@
 var towers = []; //List of defense towers
 
-function Tower(x, y) {
-  this.x = x;
-  this.y = y;
-}
-
+//Range variables
 var TOWER_RANGE_MEDIUM = rectWidth * 5;
-var TOWER_RANGE_LONG = TOWER_RANGE_MEDIUM * 1.4; //looking to double area, not radius or range
-var TOWER_RANGE_SHORT = TOWER_RANGE_MEDIUM * 0.7; //0.7 rather than 0.5 because looking at area
+var TOWER_RANGE_LONG = TOWER_RANGE_MEDIUM * 1.4;
+var TOWER_RANGE_SHORT = TOWER_RANGE_MEDIUM * 0.7; 
 
+//Rate variables
 var TOWER_RATE_MEDIUM = 1.0 * 1000; //smaller means more bullets per second
 var TOWER_RATE_HIGH = TOWER_RATE_MEDIUM / 2;
 
-var TOWER_DAMAGE_MEDIUM = Enemy.prototype.maxLife / 5;
+//Damage variables
+var TOWER_DAMAGE_MEDIUM = Enemy.prototype.maxLife / 4;
 var TOWER_DAMAGE_HIGH = TOWER_DAMAGE_MEDIUM * 1.5;
 
+//Manage strategies
 var TOWER_STRATEGY_OLDEST = 1;
 var TOWER_STRATEGY_YOUNGEST = 2;
 var TOWER_STRATEGY_WEAKEST = 3;
@@ -26,13 +25,58 @@ Tower.prototype.range = TOWER_RANGE_MEDIUM;
 Tower.prototype.hurt = TOWER_DAMAGE_MEDIUM;
 Tower.prototype.image = document.getElementById('cannon1');
 Tower.prototype.cost = 50;
-Tower.prototype.targetStrategy = TOWER_STRATEGY_RANDOM;
+Tower.prototype.targetStrategy = TOWER_STRATEGY_OLDEST;
 
+//Basic tower level 1
+function Tower(x, y) {
+  this.x = x;
+  this.y = y;
+}
+document.getElementById('tower1range').textContent = "normal";
+document.getElementById('tower1damage').textContent = "low";
+document.getElementById('tower1rate').textContent = "normal";
+document.getElementById('tower1cost').textContent = Tower.prototype.cost;
+
+//Tower 2 with long range and rate of fire doubled
+var Tower2 = function (x, y) {
+  Tower.call(this, x, y);
+};
+Tower2.prototype = Object.create(Tower.prototype);
+Tower2.prototype.constructor = Tower2;
+Tower2.prototype.range = TOWER_RANGE_LONG;
+Tower2.prototype.image = document.getElementById('cannon2');
+Tower2.prototype.cost = Tower.prototype.cost * 4;
+Tower2.prototype.rateOfFire = TOWER_RATE_HIGH / 2;
+Tower2.prototype.targetStrategy = TOWER_STRATEGY_WEAKEST;
+document.getElementById('tower2range').textContent = "long"
+document.getElementById('tower2damage').textContent = "normal";
+document.getElementById('tower2rate').textContent = "high";
+document.getElementById('tower2cost').textContent = Tower2.prototype.cost;
+
+
+//Strong tower 
+var Tower3 = function (x, y) {
+  Tower.call(this, x, y);
+};
+Tower3.prototype = Object.create(Tower.prototype);
+Tower3.prototype.constructor = Tower3;
+Tower3.prototype.range = TOWER_RANGE_SHORT;
+Tower3.prototype.hurt = TOWER_DAMAGE_HIGH * 4;
+Tower3.prototype.image = document.getElementById('cannon3');
+Tower3.prototype.cost = Tower.prototype.cost * 4;
+Tower3.prototype.targetStrategy = TOWER_STRATEGY_YOUNGEST;
+document.getElementById('tower3range').textContent = "short";
+document.getElementById('tower3damage').textContent = "high";
+document.getElementById('tower3rate').textContent = "normal";
+document.getElementById('tower3cost').textContent = Tower3.prototype.cost;
+
+//Function to check if an ennemy is in range of the tower
 Tower.prototype.enemyIsInRange = function (enemy) {
   var dist = (enemy.x - this.x) * (enemy.x - this.x + rectWidth) + (enemy.y - this.y) * (enemy.y - this.y + rectWidth); //rectWidth included to look at center of rectangle, not top left corner
   return (dist < (this.range * this.range)); //square of range. avoid Math.sqrt which is expensive
 };
 
+//Function to select target
 Tower.prototype.selectTarget = function (possibleTargets) {
   switch (this.targetStrategy) {
     case TOWER_STRATEGY_OLDEST:
@@ -73,12 +117,12 @@ Tower.prototype.findTarget = function () {
 };
 
 Tower.prototype.findUnitVector = function () {
-  if (!this.target) return false; //if there is no target, dont bother calculating unit vector
+  if (!this.target) return false; 
   var xDist = this.target.x - this.x;
   var yDist = this.target.y - this.y;
   var dist = Math.sqrt(xDist * xDist + yDist * yDist);
   this.angle = Math.atan2(yDist, xDist) + Math.PI / 2;
-  this.xFire = this.x + this.r * xDist / dist; //where turret ends and bullets start
+  this.xFire = this.x + this.r * xDist / dist;
   this.yFire = this.y + this.r * yDist / dist;
 };
 
@@ -112,98 +156,8 @@ Tower.prototype.fire = function (t) {
   this.rateOfFire -= t;
   if (this.target && this.rateOfFire <= 0) {
     bullets.push(new Bullet(this.xFire, this.yFire, this.target, this.hurt));
-    //reset this objects rateOfFire to the prototypes
-    this.rateOfFire = this.constructor.prototype.rateOfFire;
+    this.rateOfFire = this.constructor.prototype.rateOfFire; //reset
   }
 };
-
-Tower.prototype.getRangeString = function () {
-  switch (this.range) {
-    case TOWER_RANGE_SHORT:
-      return 'short';
-
-    case TOWER_RANGE_MEDIUM:
-      return 'med';
-
-    case TOWER_RANGE_LONG:
-      return 'long';
-
-    default:
-      return '??';
-  }
-};
-
-Tower.prototype.getDamageString = function () {
-  switch (this.hurt) {
-    case TOWER_DAMAGE_MEDIUM:
-      return 'med';
-
-    case TOWER_DAMAGE_HIGH:
-      return 'high';
-
-    default:
-      return '??';
-  }
-};
-
-
-Tower.prototype.getRateString = function () {
-  switch (this.rateOfFire) {
-    case TOWER_RATE_MEDIUM:
-      return 'med';
-
-    case TOWER_RATE_HIGH:
-      return 'high';
-
-    default:
-      return '??';
-  }
-};
-
-//other types of towers
-//long range tower:
-
-var Tower2 = function (x, y) {
-  Tower.call(this, x, y);
-};
-Tower2.prototype = Object.create(Tower.prototype);
-Tower2.prototype.constructor = Tower2;
-
-Tower2.prototype.range = TOWER_RANGE_LONG;
-Tower2.prototype.color = 'brown';
-Tower2.prototype.image = document.getElementById('cannon2');
-Tower2.prototype.cost = Tower.prototype.cost * 1.5;
-Tower2.prototype.rateOfFire = TOWER_RATE_HIGH;
-Tower2.prototype.targetStrategy = TOWER_STRATEGY_WEAKEST;
-
-//short range high damage tower
-var Tower3 = function (x, y) {
-  Tower.call(this, x, y);
-};
-Tower3.prototype = Object.create(Tower.prototype);
-Tower3.prototype.constructor = Tower3;
-
-Tower3.prototype.range = TOWER_RANGE_SHORT;
-Tower3.prototype.hurt = TOWER_DAMAGE_HIGH;
-Tower3.prototype.image = document.getElementById('cannon3');
-Tower3.prototype.color = 'aqua';
-Tower3.prototype.cost = Tower.prototype.cost * 1.5;
-Tower3.prototype.targetStrategy = TOWER_STRATEGY_YOUNGEST;
-
 
 var towerClasses = [Tower, Tower2, Tower3]; //List of types of towers
-
-document.getElementById('tower1range').textContent = Tower.prototype.getRangeString();
-document.getElementById('tower1damage').textContent = Tower.prototype.getDamageString();
-document.getElementById('tower1rate').textContent = Tower.prototype.getRateString();
-document.getElementById('tower1cost').textContent = Tower.prototype.cost;
-
-document.getElementById('tower2range').textContent = Tower2.prototype.getRangeString();
-document.getElementById('tower2damage').textContent = Tower2.prototype.getDamageString();
-document.getElementById('tower2rate').textContent = Tower2.prototype.getRateString();
-document.getElementById('tower2cost').textContent = Tower2.prototype.cost;
-
-document.getElementById('tower3range').textContent = Tower3.prototype.getRangeString();
-document.getElementById('tower3damage').textContent = Tower3.prototype.getDamageString();
-document.getElementById('tower3rate').textContent = Tower3.prototype.getRateString();
-document.getElementById('tower3cost').textContent = Tower3.prototype.cost;
