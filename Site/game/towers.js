@@ -64,11 +64,12 @@ Tower3.prototype.range = TOWER_RANGE_SHORT;
 Tower3.prototype.hurt = TOWER_DAMAGE_HIGH * 3;
 Tower3.prototype.image = document.getElementById('cannon3');
 Tower3.prototype.cost = Tower.prototype.cost * 4;
-Tower3.prototype.targetStrategy = TOWER_STRATEGY_YOUNGEST;
+Tower3.prototype.targetStrategy = TOWER_STRATEGY_OLDEST;
 document.getElementById('tower3range').textContent = "short";
 document.getElementById('tower3damage').textContent = "high";
 document.getElementById('tower3rate').textContent = "normal";
 document.getElementById('tower3cost').textContent = Tower3.prototype.cost;
+
 
 //Function to check if an ennemy is in range of the tower
 Tower.prototype.enemyIsInRange = function (enemy) {

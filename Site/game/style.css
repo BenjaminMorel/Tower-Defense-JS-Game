@@ -65,7 +65,7 @@
 
 .tower {
     width: 10%;
-    font-size: 16px;
+    font-size: 14px;
     flex-basis: 20%;
     display: inline-block;
     margin-bottom: 15px;
@@ -75,7 +75,8 @@
 
 #tower1cost,
 #tower2cost,
-#tower3cost {
+#tower3cost,
+#tower4cost {
     font-weight: bold;
     color: darkgoldenrod;
 }

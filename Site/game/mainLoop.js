@@ -12,7 +12,7 @@ var canvas = document.getElementById('canvas'),
   midBorder = maxWidth * 2 / 3;
 
 //vertical borders:
-    firstBorder = maxWidth / 8,
+firstBorder = maxWidth / 8,
   secondBorder = maxWidth / 4,
   thirdBorder = maxWidth * 3 / 8,
   ennemiesKilled = 0,
@@ -74,7 +74,7 @@ mainLoopLogic = function () {
       scores.push(infos);
 
       localStorage.setItem('highscores', JSON.stringify(scores));
-      
+
       // refresh the page
       window.location.replace("/Site/leaderboards.html");
       ennemiesKilled = 0;
