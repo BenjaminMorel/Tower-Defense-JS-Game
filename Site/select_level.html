@@ -46,13 +46,15 @@
     <center>
         <div id="menu"
             style="background-image: url(/Site/game/images/Background_menu.png); height: 350px; width: 700px;">
-            <a id="title">Enter your nickname</a>
-            <div id="nickname">
-                <input type="text" name="text"></input>
-            </div>
-            <div id="mainDiv">
-                <a type="button" class="button" href="game.html">Start!</a>
-            </div>
+            <form id="selectName" action="/action_page.php" method="post">
+                <a id="title">Enter your nickname</a>
+                <div id="nickname">
+                    <input type="text" name="text" id="nickname"></input>
+                </div>
+                <div id="mainDiv">
+                    <a type="submit" class="button" href="game.html">Start!</a>
+                </div>
+            </form>
         </div>
     </center>
 
@@ -67,7 +69,6 @@
         function drop(ev) {
             ev.preventDefault();
             var data = ev.dataTransfer.getData("text");
-            //document.getElementById('canvas').style.backgroundImage = `url("Site/game/images/Frog.png")`;
             window.location.replace("/Site/game.html");
             ev.target.appendChild(document.getElementById(data));
         }

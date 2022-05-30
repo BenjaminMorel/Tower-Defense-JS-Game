@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/Site/game/style.css">
     <link rel="stylesheet" href="ressources/css/style_start.css">
+    <link rel="stylesheet" href="ressources/css/leaderboards.css">
 </head>
 
 <body>
@@ -43,41 +44,44 @@
     </header>
 
     <p></p>
-    <h1 class="text-center">Highscore list</h1>
-    <ul class="text-center" id="highscores"></ul>
 
-    <a href="./game_menu.html" class="d-block text-center">
-        <button>Back to home</button>
-    </a>
+    <div class="scores">
+        <h1 class="text-center" id="title_highscore">Highscore list</h1>
+        <ul class="text-center" id="highscores">
 
-    <script>
-        const highscores = document.getElementById('highscores');
+        <img src="/Site/game/images/Trophy.jpg" height="100px">
 
-        function createListItem(content) {
-            const li = document.createElement('li');
+        <script>
+            const highscores = document.getElementById('highscores');
 
-            li.textContent = content;
+            function createListItem(content) {
+                const li = document.createElement('li');
 
-            return li;
-        }
+                li.textContent = content;
 
-        // retrieve the highscores from local storage. if it is empty, set it to an empty array
-        let scores = JSON.parse(localStorage.getItem('highscores')) || [];
+                return li;
+            }
 
-        // rank the score from high to low
-        scores = scores.sort().reverse();
+            // retrieve the highscores from local storage. if it is empty, set it to an empty array
+            let scores = JSON.parse(localStorage.getItem('highscores')) || [];
+            //let nickname = JSON.parse(localStorage.getItem('nickname')) || [];
 
-        for (let index = 0; index < scores.length; index++) {
-            // create list item
-            const li = createListItem(
-                String(index + 1) + ") " + scores[index]
-            );
+            // rank the score from high to low
+            scores = scores.sort().reverse();
 
-            // put them in ul
-            highscores.appendChild(li);
-        }
-    </script>
-    
+            for (let index = 0; index < scores.length; index++) {
+                // create list item
+                    const li = createListItem(String(index + 1) + ") " + scores[index]);
+                    highscores.appendChild(li);
+            }
+        </script>
+        <a href="./game_menu.html" class="d-block text-center">
+            <button id="back">Back to home</button>
+        </a>
+    </div>
+
+
+
 </body>
 
 </html>

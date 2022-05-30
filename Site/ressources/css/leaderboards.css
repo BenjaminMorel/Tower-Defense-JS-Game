@@ -1,0 +1,28 @@
+.scores {
+    text-align: center;
+    margin-left: 400px;
+    margin-right: 400px;
+    border-radius: 10px;
+    border-color: gold;
+    border-style: solid;
+}
+
+ li {
+    list-style: none;
+}
+
+#title_highscore {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#back {
+    background-color: grey;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}

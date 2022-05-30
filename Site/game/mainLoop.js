@@ -10,8 +10,9 @@ var canvas = document.getElementById('canvas'),
   leftBorder = maxWidth / 6,
   rightBorder = maxWidth * 5 / 6,
   midBorder = maxWidth * 2 / 3;
-  //vertical borders:
-  firstBorder = maxWidth / 8,
+
+//vertical borders:
+    firstBorder = maxWidth / 8,
   secondBorder = maxWidth / 4,
   thirdBorder = maxWidth * 3 / 8,
   ennemiesKilled = 0,
@@ -21,6 +22,7 @@ var canvas = document.getElementById('canvas'),
   money = 300,
   moneyIncrement = 10,
   updateStats = false;
+
 
 //draw stuff
 mainLoopRender = function () {
@@ -57,23 +59,26 @@ mainLoopLogic = function () {
   for (var i = 0, j = enemies.length; i < j; i++) {
     //true if attacker scored
     if (enemies[i].move(t)) {
-      alert("You lost, score: " + ennemiesKilled);
+
+      let person = prompt("You lost, score: " + ennemiesKilled + "\nPlease enter your name:", "Harry Potter");
+      if (person == null || person == "") {
+        text = "User cancelled the prompt.";
+      } else {
+        var nickname = person;
+      }
+      console.log(nickname);
 
       const scores = JSON.parse(localStorage.getItem('highscores')) || [];
+      var infos = [ennemiesKilled,nickname];
 
-      scores.push(ennemiesKilled);
-
-      // sort from low to high
-      scores.sort();
-
-      if (scores.length > 10) {
-        scores.shift();
-      }
+      scores.push(infos);
 
       localStorage.setItem('highscores', JSON.stringify(scores));
+      
       // refresh the page
       window.location.replace("/Site/leaderboards.html");
       ennemiesKilled = 0;
+      nickname = "";
       return;
     }
   }
