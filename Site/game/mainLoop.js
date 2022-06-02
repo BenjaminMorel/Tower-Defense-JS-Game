@@ -12,7 +12,7 @@ var canvas = document.getElementById('canvas'),
   midBorder = maxWidth * 2 / 3;
 
 //vertical borders:
-    firstBorder = maxWidth / 8,
+firstBorder = maxWidth / 8,
   secondBorder = maxWidth / 4,
   thirdBorder = maxWidth * 3 / 8,
   ennemiesKilled = 0,
@@ -23,6 +23,11 @@ var canvas = document.getElementById('canvas'),
   moneyIncrement = 10,
   updateStats = false;
 
+//Audio
+const music = new Audio("game/Music.mp3");
+music.play();
+music.volume = 0.1;
+music.loop = 1;
 
 //draw stuff
 mainLoopRender = function () {
@@ -69,12 +74,13 @@ mainLoopLogic = function () {
       console.log(nickname);
 
       const scores = JSON.parse(localStorage.getItem('highscores')) || [];
-      var infos = [ennemiesKilled,nickname];
-
+      var infos = [ennemiesKilled, nickname];
+      
       scores.push(infos);
 
       localStorage.setItem('highscores', JSON.stringify(scores));
-      
+
+      music.pause();
       // refresh the page
       window.location.replace("/Site/leaderboards.html");
       ennemiesKilled = 0;
