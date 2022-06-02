@@ -34,7 +34,7 @@ mainLoopRender = function () {
 
   context.beginPath();
   context.clearRect(0, 0, canvas.width, canvas.height);
-  for (var i = 0, j = enemies.length; i < j; i++) {
+  for (let i = 0, j = enemies.length; i < j; i++) {
     enemies[i].draw();
   }
   for (var i = 0, j = towers.length; i < j; i++) {
@@ -106,3 +106,10 @@ window.onload = function () {
   requestIdleCallback(mainLoopLogic, { timeout: 250 });
   requestAnimationFrame(mainLoopRender);
 };
+
+
+
+var gamer = {
+  name:nickname,
+  score:ennemiesKilled
+}
