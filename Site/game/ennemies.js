@@ -97,7 +97,7 @@ Enemy.prototype.move = function (t) {
 function checkForDead() {
   for (var i = 0, j = enemies.length; i < j; i++) {
     if (enemies[i].life <= 0) {
-      addedLife = 1 + Math.floor(ennemiesCounter / 75)  //used to make enemies tougher as the number of stopped enemies goes up
+      addedLife = 1 + Math.floor(ennemiesKilled / 20)  //used to make enemies tougher as the number of stopped enemies goes up
       //* (1 + Math.floor(ennemiesCounter / 100));
       console.log(addedLife);
       ennemiesKilled++;
@@ -112,7 +112,7 @@ function checkForDead() {
 
 var addEnemy = function () {
   var enemy;
-  if (ennemiesCounter > 10 && ennemiesCounter % 4 == 0) {
+  if (ennemiesCounter > 10 && ennemiesCounter % 5 == 0) {
     enemy = new enemyTypes[2](0);//select random enemy type
   }
   else if (ennemiesCounter > 1 && ennemiesCounter % 10 == 0) {

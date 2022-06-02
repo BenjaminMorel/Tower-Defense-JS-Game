@@ -5,7 +5,7 @@
     <title>Javascript tower defense game</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/Site/game/style.css">
+    <link rel="stylesheet" href="game/style.css">
     <link rel="stylesheet" href="ressources/css/style_start.css">
 </head>
 
@@ -84,9 +84,9 @@
 
     <!-- Images -->
     <div style="display:none;">
-        <img id="cannon1" src="game/images/Cannon1.png" width="40" height="40">
-        <img id="cannon2" src="game/images/Cannon2.png" width="40" height="40">
-        <img id="cannon3" src="game/images/Cannon3.png" width="40" height="40">
+        <img id="cannon1" src="/Site/game/images/Cannon1.png" width="40" height="40">
+        <img id="cannon2" src="/Site/game/images/Cannon2.png" width="40" height="40">
+        <img id="cannon3" src="/Site/game/images/Cannon3.png" width="40" height="40">
     </div>
 
     <!-- Links to java script files-->
@@ -98,17 +98,17 @@
 
     <div class="maps">
         <div id="div2" ondrop="drop(event)">
-            <img src="game/images/Background1.png" draggable="true" ondragstart="drag(event)" id="drag1" width="200"
+            <img src="/Site/game/images/Background1.png" draggable="true" ondragstart="drag(event)" id="drag1" width="200"
                 height="100">
         </div>
 
         <div id="div3" ondrop="drop(event)">
-            <img src="game/images/Background2.png" draggable="true" ondragstart="drag(event)" id="drag2" width="200"
+            <img src="/Site/game/images/Background2.png" draggable="true" ondragstart="drag(event)" id="drag2" width="200"
                 height="100">
         </div>
 
         <div id="div4" ondrop="drop(event)">
-            <img src="game/images/Background3.png" draggable="true" ondragstart="drag(event)" id="drag3" width="200"
+            <img src="/Site/game/images/Background3.png" draggable="true" ondragstart="drag(event)" id="drag3" width="200"
                 height="100">
         </div>
     </div>
@@ -125,13 +125,13 @@
             ev.preventDefault();
             var data = ev.dataTransfer.getData("text");
             if (document.getElementById(data).id == 'drag1') {
-                document.getElementById('canvas').style.backgroundImage = 'url("game/images/Background1.png")';
+                document.getElementById('canvas').style.backgroundImage = 'url("/Site/game/images/Background1.png")';
             }
             else if (document.getElementById(data).id == 'drag2') {
-                document.getElementById('canvas').style.backgroundImage = 'url("game/images/Background2.png")';
+                document.getElementById('canvas').style.backgroundImage = 'url("/Site/game/images/Background2.png")';
             }
             else if (document.getElementById(data).id == 'drag3') {
-                document.getElementById('canvas').style.backgroundImage = 'url("game/images/Background3.png")';
+                document.getElementById('canvas').style.backgroundImage = 'url("/Site/game/images/Background3.png")';
             }
         }
     </script>
