@@ -1,42 +1,52 @@
 var canvas = document.getElementById('canvas'),
   context = canvas.getContext('2d'),
-  rectWidth = 20, //basic game unit size (pixles)
-  maxWidth = canvas.width, //add maxHight if not perfect square
+  //Game unit size in pixels
+  rectWidth = 20, 
+  //Maxwidht if not perfect square
+  maxWidth = canvas.width, 
   lastMove = new Date(),
   baseSpeed = 5 * rectWidth / 1000,
-  mouse, //mouse x and y for drawing range
-  currentTower = 0, //tower type selector.
-  //borders for attacker's path
+  //Mouse x and y for drawing range
+  mouse, 
+  //Current tower type selector.
+  currentTower = 0, 
+
+  //Borders for attacker's path
   leftBorder = maxWidth / 6,
   rightBorder = maxWidth * 5 / 6,
   midBorder = maxWidth * 2 / 3;
 
-//vertical borders:
-firstBorder = maxWidth / 8,
+  //Vertical borders:
+  firstBorder = maxWidth / 8,
   secondBorder = maxWidth / 4,
   thirdBorder = maxWidth * 3 / 8,
+  //Variable to counter the number of ennemies killed
   ennemiesKilled = 0,
+  //Boolean to check if the game is lost
   loose = false,
-  //counter for when to add enemy units
+  //Counter for when to add enemy units
   addEnemyTimer = 2 * 1000,
+  //Starting money
   money = 300,
+  //Increment for each ennemi killed
   moneyIncrement = 10,
   updateStats = false;
 
-//Audio
+//Adding game music
 const music = new Audio("game/Music.mp3");
 music.play();
 music.volume = 0.1;
 music.loop = 1;
 
-//draw stuff
+//Draw stuff
 mainLoopRender = function () {
   if (updateStats) {
     updateStats = false;
+    //Set info in HTML file
     document.getElementById('ennemiesKilled').innerHTML = ennemiesKilled;
     document.getElementById('money').innerHTML = money;
   }
-
+  //Draw path
   context.beginPath();
   context.clearRect(0, 0, canvas.width, canvas.height);
   for (var i = 0, j = enemies.length; i < j; i++) {
@@ -58,31 +68,33 @@ mainLoopLogic = function () {
   addEnemyTimer -= t;
   if (addEnemyTimer <= 0) {
     addEnemy()
-    addEnemyTimer = (ennemiesKilled > 40) ? 0.66 * 1000 : 1 * 1000;  //how quicklly a new enemy is generated
+    //How quicklly a new enemy is generated
+    addEnemyTimer = (ennemiesKilled > 40) ? 0.66 * 1000 : 1 * 1000;  
   }
 
   for (var i = 0, j = enemies.length; i < j; i++) {
-    //true if attacker scored
     if (enemies[i].move(t)) {
-
+      //If lost, pop an alert window to show the score and enter the name
       let person = prompt("You lost, score: " + ennemiesKilled + "\nPlease enter your name:", "Harry Potter");
       if (person == null || person == "") {
         text = "User cancelled the prompt.";
       } else {
         var nickname = person;
       }
-      console.log(nickname);
 
+      //Using json to store the info in local storage
       const scores = JSON.parse(localStorage.getItem('highscores')) || [];
       var infos = [ennemiesKilled, nickname];
-      
       scores.push(infos);
-
       localStorage.setItem('highscores', JSON.stringify(scores));
 
+      //Stop music
       music.pause();
-      // refresh the page
+
+      //Go to leaderboards page
       window.location.replace("/Site/leaderboards.html");
+
+      //Reset counters
       ennemiesKilled = 0;
       nickname = "";
       return;
@@ -95,7 +107,7 @@ mainLoopLogic = function () {
     towers[i].fire(t);
   }
 
-  //move bullets, check for hits, remove bullets if hit
+  //Move bullets, check for hits, remove bullets if hit
   for (var i = 0, j = bullets.length; i < j; i++) {
     bullets[i].move(t);
     if (bullets[i].checkCollision()) {
