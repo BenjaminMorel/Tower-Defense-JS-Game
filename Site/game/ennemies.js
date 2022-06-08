@@ -107,7 +107,7 @@ Enemy.prototype.move = function (t) {
 function checkForDead() {
   for (var i = 0, j = enemies.length; i < j; i++) {
     if (enemies[i].life <= 0) {
-      addedLife = 1 + Math.floor(ennemiesKilled / 20)  //used to make enemies tougher as the number of stopped enemies goes up
+      addedLife = 1 + Math.floor(ennemiesCounter / 20)  //used to make enemies tougher as the number of stopped enemies goes up
       ennemiesKilled++; //Increment count of ennemies killed
       money += moneyIncrement; //Add money for every kill
       updateStats = true;
@@ -122,7 +122,7 @@ function checkForDead() {
 var addEnemy = function () {
   var enemy;
   //Every 5 ennemies spawned, spawn a fast frog
-  if (ennemiesCounter > 10 && ennemiesCounter % 5 == 0) {
+  if (ennemiesCounter > 10 && ennemiesCounter % 3 == 0) {
     enemy = new enemyTypes[2](0);
   }
   //Every 10 ennemies spawned, spawn a strong boss

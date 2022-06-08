@@ -64,8 +64,7 @@
 
             // retrieve the highscores from local storage. if it is empty, set it to an empty array
             let scores = JSON.parse(localStorage.getItem('highscores')) || [];
-            //let nickname = JSON.parse(localStorage.getItem('nickname')) || [];
-
+        
             // rank the score from high to low
             scores = scores.sort().reverse();
 
